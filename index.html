@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest news and updates from around the world">
+    <title>News Website - Latest Updates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #ecf0f1;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: #34495e;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin-right: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #2c3e50;
+            border-radius: 4px;
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .featured-article h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-article .meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-article img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .news-card .meta {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-card p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .news-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .news-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-section h2 {
+            color: #2c3e50;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>📰 News Website</h1>
+            <p>Your trusted source for the latest news and updates</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#world">World</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#business">Business</a></li>
+            <li><a href="#sports">Sports</a></li>
+            <li><a href="#entertainment">Entertainment</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Featured Article -->
+        <article class="featured-article">
+            <h2>Breaking News: Major Technology Breakthrough Announced</h2>
+            <div class="meta">
+                <span>📅 November 12, 2025</span> | 
+                <span>✍️ By Sarah Johnson</span> | 
+                <span>🏷️ Technology</span>
+            </div>
+            <img src="https://via.placeholder.com/1200x400/3498db/ffffff?text=Featured+News" alt="Featured News">
+            <p>In a groundbreaking announcement today, leading technology companies have unveiled a revolutionary advancement that promises to transform the industry. This development represents years of research and collaboration among top scientists and engineers worldwide.</p>
+            <p>The innovation is expected to have far-reaching implications across multiple sectors, including healthcare, education, and environmental sustainability. Experts predict this could be one of the most significant technological achievements of the decade.</p>
+            <a href="#read-more">Read Full Article →</a>
+        </article>
+
+        <!-- World News Section -->
+        <section class="category-section" id="world">
+            <h2>🌍 World News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=World+News+1" alt="World News 1">
+                    <div class="news-card-content">
+                        <h3>Global Summit Addresses Climate Change</h3>
+                        <div class="meta">November 11, 2025 | World</div>
+                        <p>World leaders gathered today to discuss crucial climate action policies and commitments for the coming decade.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=World+News+2" alt="World News 2">
+                    <div class="news-card-content">
+                        <h3>International Trade Agreement Reached</h3>
+                        <div class="meta">November 10, 2025 | Economy</div>
+                        <p>Multiple nations have signed a historic trade agreement aimed at boosting economic cooperation and growth.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=World+News+3" alt="World News 3">
+                    <div class="news-card-content">
+                        <h3>Humanitarian Aid Reaches Remote Areas</h3>
+                        <div class="meta">November 9, 2025 | Humanitarian</div>
+                        <p>Relief organizations successfully deliver essential supplies to communities affected by recent natural disasters.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Technology News Section -->
+        <section class="category-section" id="technology">
+            <h2>💻 Technology News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Tech+News+1" alt="Tech News 1">
+                    <div class="news-card-content">
+                        <h3>AI Advances in Healthcare Diagnostics</h3>
+                        <div class="meta">November 11, 2025 | Technology</div>
+                        <p>New artificial intelligence system shows remarkable accuracy in early disease detection and diagnosis.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Tech+News+2" alt="Tech News 2">
+                    <div class="news-card-content">
+                        <h3>Quantum Computing Reaches New Milestone</h3>
+                        <div class="meta">November 10, 2025 | Science</div>
+                        <p>Researchers achieve unprecedented quantum computing power, opening doors to solving complex problems.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Tech+News+3" alt="Tech News 3">
+                    <div class="news-card-content">
+                        <h3>Sustainable Tech Solutions Emerge</h3>
+                        <div class="meta">November 9, 2025 | Environment</div>
+                        <p>Innovative green technology solutions promise to reduce carbon emissions and environmental impact.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Business News Section -->
+        <section class="category-section" id="business">
+            <h2>💼 Business News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/2ecc71/ffffff?text=Business+News+1" alt="Business News 1">
+                    <div class="news-card-content">
+                        <h3>Stock Markets Show Strong Growth</h3>
+                        <div class="meta">November 11, 2025 | Finance</div>
+                        <p>Major stock indices reach new highs amid positive economic indicators and investor confidence.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/2ecc71/ffffff?text=Business+News+2" alt="Business News 2">
+                    <div class="news-card-content">
+                        <h3>Startup Secures Record Funding</h3>
+                        <div class="meta">November 10, 2025 | Startups</div>
+                        <p>Innovative startup raises substantial funding round to expand operations and develop new products.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/2ecc71/ffffff?text=Business+News+3" alt="Business News 3">
+                    <div class="news-card-content">
+                        <h3>Corporate Merger Announcement</h3>
+                        <div class="meta">November 9, 2025 | Corporate</div>
+                        <p>Two industry leaders announce strategic merger to create global powerhouse in their sector.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sports News Section -->
+        <section class="category-section" id="sports">
+            <h2>⚽ Sports News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Sports+News+1" alt="Sports News 1">
+                    <div class="news-card-content">
+                        <h3>Championship Finals Set Record Viewership</h3>
+                        <div class="meta">November 11, 2025 | Sports</div>
+                        <p>Historic championship match breaks all-time viewership records with fans tuning in globally.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Sports+News+2" alt="Sports News 2">
+                    <div class="news-card-content">
+                        <h3>Olympic Athlete Breaks World Record</h3>
+                        <div class="meta">November 10, 2025 | Athletics</div>
+                        <p>Incredible performance at international competition sees new world record established in track event.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Sports+News+3" alt="Sports News 3">
+                    <div class="news-card-content">
+                        <h3>Team Wins League Championship</h3>
+                        <div class="meta">November 9, 2025 | Football</div>
+                        <p>Underdog team clinches league championship in thrilling final match of the season.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Entertainment News Section -->
+        <section class="category-section" id="entertainment">
+            <h2>🎬 Entertainment News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/9b59b6/ffffff?text=Entertainment+1" alt="Entertainment News 1">
+                    <div class="news-card-content">
+                        <h3>New Blockbuster Breaks Box Office Records</h3>
+                        <div class="meta">November 11, 2025 | Movies</div>
+                        <p>Latest film release achieves unprecedented opening weekend success at theaters worldwide.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/9b59b6/ffffff?text=Entertainment+2" alt="Entertainment News 2">
+                    <div class="news-card-content">
+                        <h3>Music Festival Announces Lineup</h3>
+                        <div class="meta">November 10, 2025 | Music</div>
+                        <p>Major music festival reveals star-studded lineup featuring top artists from around the world.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/300x200/9b59b6/ffffff?text=Entertainment+3" alt="Entertainment News 3">
+                    <div class="news-card-content">
+                        <h3>Award Show Celebrates Best of Year</h3>
+                        <div class="meta">November 9, 2025 | Awards</div>
+                        <p>Annual awards ceremony honors outstanding achievements in film, television, and music.</p>
+                        <a href="#read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 News Website. All rights reserved.</p>
+        <p>Stay informed with the latest news from around the world.</p>
+        <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#contact">Contact Us</a></p>
+    </footer>
+</body>
+</html>
